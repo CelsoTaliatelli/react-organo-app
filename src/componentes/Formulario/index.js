@@ -1,5 +1,6 @@
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
+import Botao from '../Botao';
 import './Formulario.css';
 
 const Formulario = () => {
@@ -8,14 +9,21 @@ const Formulario = () => {
         'Data Science',
         'DevOps'
     ];
+
+
+    const aoSalvar = (evento) => {
+        evento.preventDefault();
+    }
+
     return(
         <section className='formulario'>
-            <form>
+            <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto label="Nome" placeholder="Digite seu nome" />
-                <CampoTexto label="Cargo" placeholder="Digite seu cargo" />
+                <CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome" />
+                <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu cargo" />
                 <CampoTexto label="Imagem" placeholder="Digite seu nome" />
-                <ListaSuspensa label="Times" itens={times}/>
+                <ListaSuspensa obrigatorio={true} label="Times" itens={times}/>
+                <Botao>Criar Card</Botao>
             </form>
         </section>
     );
