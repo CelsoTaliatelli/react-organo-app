@@ -9,7 +9,7 @@ const CampoTexto = (props) => {
 
     return (
         <div className="campo-texto">
-            <label for={props.label}>{props.label}</label>
+            <label htmlFor={props.label}>{props.label}</label>
             <input
                 id={props.label} 
                 value={props.valor} 

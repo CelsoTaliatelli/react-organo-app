@@ -4,7 +4,7 @@ import Botao from '../Botao';
 import './Formulario.css';
 import { useState } from 'react';
 
-const Formulario = () => {
+const Formulario = (props) => {
     const times =[
         'Programação',
         'Data Science',
@@ -19,6 +19,12 @@ const Formulario = () => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault();
+        props.aoNovoColaboradorCadastro({
+            nome,
+            cargo,
+            imagem,
+            time,
+        });
     }
 
     return(
