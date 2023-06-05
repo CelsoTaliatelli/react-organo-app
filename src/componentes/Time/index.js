@@ -2,7 +2,6 @@ import Colaborador from '../Colaborador';
 import './Time.css';
 
 const Time = (props) => {
-    console.log(props);
     const fundo = {backgroundColor:props.corSecundaria};
     const borda = {borderColor:props.corPrimaria};
     return(
