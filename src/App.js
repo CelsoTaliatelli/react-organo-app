@@ -51,6 +51,7 @@ function App() {
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     colaborador.id = uuidv4();
+    colaborador.favorito = false;
     //debugger
     setColaboradores([...colaboradores,colaborador]);
   }
@@ -63,6 +64,14 @@ function App() {
 
   const deletarColaborador = (id) => {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
+  }
+
+  const favoritarColaborador = (id) => {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+      console.log(colaborador);
+      return colaborador;
+    }))
   }
 
   const mudarCorDotime  = (cor,id) => {
@@ -93,6 +102,7 @@ function App() {
                 colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
                 mudarCor={mudarCorDotime}
                 aoDeletar={deletarColaborador}
+                aoFavoritar={favoritarColaborador}
               />)
         }
         <Rodape />
