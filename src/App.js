@@ -55,6 +55,12 @@ function App() {
     setColaboradores([...colaboradores,colaborador]);
   }
 
+  const aoNovoTimeAdicionado = (time) => {
+    time.id = uuidv4();
+    console.log(time);
+    setTimes([...times, time]);
+  }
+
   const deletarColaborador = (id) => {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
   }
@@ -71,7 +77,11 @@ function App() {
   return (
     <div>
         <Banner />
-        <Formulario aoNovoColaboradorCadastro={colaborador => aoNovoColaboradorAdicionado(colaborador)} times={times.map(time => time.nome)} />
+        <Formulario 
+          aoNovoTimeCadastro={time => aoNovoTimeAdicionado(time)}
+          aoNovoColaboradorCadastro={colaborador => aoNovoColaboradorAdicionado(colaborador)} 
+          times={times.map(time => time.nome)}
+        />
         {
           times.map(
             time => 
